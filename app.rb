@@ -13,5 +13,11 @@ post("/contacts") do
   phone_number = params.fetch("phone_number")
   contact = Contact.new(name, phone_number)
   contact.save()
+  @contacts = Contact.all()
   erb(redirect to("/"))
+end
+
+get("/contacts/:id") do
+  @contact = Contact.find(params.fetch("id"))
+  erb(:contact)
 end
