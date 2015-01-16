@@ -1,9 +1,9 @@
 class Contact
   @@all_contacts = []
 
-  define_method(:initialize) do |name, phone_number|
+  define_method(:initialize) do |name|
     @name = name
-    @phone_number = phone_number
+    @phone_numbers = []
     @id = @@all_contacts.length().+(1)
   end
 
@@ -11,12 +11,16 @@ class Contact
     @name
   end
 
-  define_method(:phone_number) do
-    @phone_number
+  define_method(:phone_numbers) do
+    @phone_numbers
   end
 
   define_method(:id) do
     @id
+  end
+
+  define_method(:add_phone_number) do |phone_number|
+    @phone_numbers.push(phone_number)
   end
 
   define_singleton_method(:all) do
