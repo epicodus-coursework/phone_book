@@ -1,13 +1,21 @@
 <h1>Contacts</h1>
 
-<form action="/contact">
+<p>Create a new contact:</p>
+
+<form action="/contacts" method="post">
   <div class="form-group">
-    <label for="name">Contact's Name:</label>
+    <label for="name">Contact name:</label>
     <input id="name" name="name" class="form-control" type="text">
   </div>
   <div class="form-group">
-    <label for="phone_number">Contact's Name:</label>
+    <label for="phone_number">Contact phone number:</label>
     <input id="phone_number" name="phone_number" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Add</button>
 </form>
+
+<ul>
+  <% @contacts.each() do |contact| %>
+  <li><%= contact.name() %></li>
+  <% end %>
+</ul>
