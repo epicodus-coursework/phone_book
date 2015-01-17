@@ -19,7 +19,7 @@
 
 <ul>
   <% @contact.phone_numbers().each do |phone_number| %>
-  <li><a href="/phone_numbers/<%= phone_number.id() %>">Contact's phone numbers</a></li>
+  <li><a href="/phone_numbers/<%= phone_number.id() %>"><%= @contact.name() %>'s phone numbers</a></li>
   <% end %>
 </ul>
 
