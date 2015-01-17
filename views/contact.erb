@@ -1,4 +1,26 @@
-<h3><%= @contact.name() %></h3>
-<h3><%= @contact.phone_number() %></h3>
+<h3>Add phone numbers for <%= @contact.name() %>:</h3>
+
+<form action="/phone_numbers" method="post">
+  <div class="form-group">
+    <input id="contact_id" name="contact_id" type="hidden" value="<%= @contact.id() %>">
+
+    <label for="home_phone">Home phone:</label>
+    <input id="home_phone" name="home_phone" class="form-control" type="text">
+
+    <label for="work_phone">Work phone:</label>
+    <input id="work_phone" name="work_phone" class="form-control" type="text">
+
+    <label for="cell_phone">Cell phone:</label>
+    <input id="cell_phone" name="cell_phone" class="form-control" type="text">
+  </div>
+
+  <button type="submit" class="btn">Add</button>
+</form>
+
+<ul>
+  <% @contact.phone_numbers().each do |phone_number| %>
+  <li><a href="/phone_numbers/<%= phone_number.id() %>">Contact's phone numbers</a></li>
+  <% end %>
+</ul>
 
 <a href="/">Return to Contacts</a>
